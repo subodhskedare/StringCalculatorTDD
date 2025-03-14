@@ -17,4 +17,9 @@ describe("String Calculator", () => {
     test("will return the number if it is a single digit/string", () => {
         expect(calculator.add("1")).toBe(1);
     });
+
+    //test 3
+    test("will return the sum of all the number ", () => {
+        expect(calculator.add("1,2,3,4")).toBe(10);
+    });
 });
