@@ -27,4 +27,10 @@ describe("String Calculator", () => {
      test("will replace /n with ,", () => {
         expect(calculator.add("1\n2,3")).toBe(6);
     });
+
+
+     //test 5
+     test("will remove the // from start and will replace /n with custome deliminter", () => {
+        expect(calculator.add("//;\n1;2")).toBe(3);
+    });
 });

@@ -8,14 +8,22 @@ export class SimpleStringCalculator implements StringCalculator {
 
     add(numbers: string): number {
         if(numbers === "") return 0;
-        console.log(numbers.includes("\n"))
         //using regular expression of replacing all \n
-        if(numbers.includes("\n")){
-            numbers = numbers.replace(/\n/g, ",")
+
+        let delimiter: string = ","
+
+
+        //      //;\n1;2"
+        if(numbers.startsWith("//")){
+            numbers = numbers.substring(2); 
+            delimiter = numbers[0]
+            if(numbers.includes("\n"))  numbers = numbers.replace(/\n/g, delimiter);
+            numbers = numbers.replace(/^[^\d]*/, '');            
+        }else{
+            if(numbers.includes("\n"))  numbers = numbers.replace(/\n/g, delimiter);
         }
-        console.log(numbers);
         
-        const nums = numbers.split(",");
+        const nums = numbers.split(delimiter);
         return nums.reduce((sumofNumbers, number) => sumofNumbers + parseInt(number), 0);
     }
   }
