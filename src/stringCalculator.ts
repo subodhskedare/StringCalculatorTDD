@@ -5,7 +5,9 @@ export interface StringCalculator {
 
 
 export class SimpleStringCalculator implements StringCalculator {
+
     add(numbers: string): number {
-      return 0;
+        if(numbers === "") return 0;
+        return parseInt(numbers)
     }
   }
