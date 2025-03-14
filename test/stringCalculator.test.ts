@@ -22,4 +22,9 @@ describe("String Calculator", () => {
     test("will return the sum of all the number ", () => {
         expect(calculator.add("1,2,3,4")).toBe(10);
     });
+
+     //test 4
+     test("will replace /n with ,", () => {
+        expect(calculator.add("1\n2,3")).toBe(6);
+    });
 });
