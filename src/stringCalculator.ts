@@ -24,6 +24,16 @@ export class SimpleStringCalculator implements StringCalculator {
         }
         
         const nums = numbers.split(delimiter);
+        let negativeNumArr: number[] = [];
+
+        nums.forEach((num: any) => {
+            const number = parseInt(num);
+            if(num < 0) negativeNumArr.push(num);
+            
+        });
+
+        if(negativeNumArr.length > 0) throw new Error("array contains negative number");
+
         return nums.reduce((sumofNumbers, number) => sumofNumbers + parseInt(number), 0);
     }
   }

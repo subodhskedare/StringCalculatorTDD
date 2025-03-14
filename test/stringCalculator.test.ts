@@ -3,7 +3,7 @@ import { SimpleStringCalculator } from "../src/stringCalculator";
 describe("String Calculator", () => {
   let calculator: SimpleStringCalculator;
 
-  //create a new calculator cariable before each test
+  //create a new calculator variable before each test
   beforeEach(() => {
     calculator = new SimpleStringCalculator();
   });
@@ -32,5 +32,13 @@ describe("String Calculator", () => {
      //test 5
      test("will remove the // from start and will replace /n with custome deliminter", () => {
         expect(calculator.add("//;\n1;2")).toBe(3);
+    });
+
+
+    //test6 
+    test("will throw error if number is negative", () => {
+        expect(() => {
+            calculator.add("1,2,-3");
+        }).toThrow("array contains negative number");
     });
 });
